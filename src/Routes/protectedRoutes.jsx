@@ -14,6 +14,9 @@ import Support from "../Pages/support";
 import User from "../Pages/user";
 import DashboardLayout from "../Layout/dashboardLayout";
 import useAuthRedirect from "./isAuthenticated";
+import Todo from "../Components/todo";
+import Crud from "../Components/Crud/crud";
+import Breadcrumb from "../Pages/breadcrumb";
 
 const routes = [
   { path: "/", element: <Dashboard /> },  // Add this
@@ -28,6 +31,10 @@ const routes = [
   { path: "/settings", element: <Settings /> },
   { path: "/support", element: <Support /> },
   { path: "/user", element: <User /> },
+  { path: "/todo", element: <Todo /> },
+  { path: "/crud", element: <Crud /> },
+  { path: "/breadcrumb", element: <Breadcrumb /> },
+
 ];
 
 const ProtectedRoutes = () => {

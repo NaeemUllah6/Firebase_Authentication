@@ -20,7 +20,7 @@ const UserProfile = () => {
     setIsEditing(!isEditing);
   };
   return (
-    <div className="max-w-full mx-auto mt-10 p-5 bg-white shadow-md rounded-lg">
+    <div className="max-w-full mx-auto mt-10 p-4  bg-white shadow-md rounded-lg">
       <h2 className="text-xl font-bold mb-4">User Profile</h2>
 
       {isEditing ? (

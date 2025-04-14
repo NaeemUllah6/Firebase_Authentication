@@ -31,7 +31,7 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="p-8 bg-white shadow-xl rounded-lg w-full max-w-full mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 text-gray-800">
+    <div className="p-4 bg-white shadow-xl rounded-lg w-full max-w-full mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 text-gray-800">
       <div className="flex flex-col items-center w-full md:w-1/3">
         <img
           src={user.avatar}

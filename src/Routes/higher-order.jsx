@@ -9,6 +9,7 @@ const HigherOrder = () => {
   useEffect(() => {
     if (!token) {
       navigate("/login");
+      navigate("/Signup");
     }
   }, [token, navigate]);
 

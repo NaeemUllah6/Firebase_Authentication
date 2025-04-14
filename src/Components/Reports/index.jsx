@@ -10,7 +10,7 @@ const Reports = () => {
   ]);
 
   return (
-    <div className="mt-10 p-6 bg-white shadow-lg rounded-lg w-full max-w-full mx-auto">
+    <div className="mt-10 p-4 bg-white shadow-lg rounded-lg w-full max-w-full mx-auto">
       <h2 className="text-xl font-bold mb-4">User Reports</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {reports.map((report) => (

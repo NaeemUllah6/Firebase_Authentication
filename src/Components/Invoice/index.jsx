@@ -23,7 +23,7 @@ const Invoice = () => {
 
 
   return (
-    <div className="p-6">
+    <div className="">
       {/* Invoice Overview Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}

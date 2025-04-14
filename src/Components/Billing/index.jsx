@@ -28,7 +28,7 @@ const expenseData = [
 
 const Billing = () => {
   return (
-    <div className="p-6 space-y-8">
+    <div className="s space-y-8">
       {/* Billing Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {billingStats.map((stat, index) => (

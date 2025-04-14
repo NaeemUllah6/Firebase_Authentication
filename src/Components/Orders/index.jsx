@@ -4,19 +4,30 @@ import { FiTruck, FiCheckCircle, FiShoppingCart, FiClock, FiDownload } from "rea
 
 const Order = () => {
   const [orders, setOrders] = useState([]);
+  const [search, setSearch] = useState("");
 
-   useEffect(()=>{
+  useEffect(() => {
     setTimeout(() => {
       setOrders([
         { id: "ORD-1001", date: "2025-03-12", amount: "$250.00", status: "Pending" },
         { id: "ORD-1002", amount: "$120.50", date: "2025-03-05", status: "Shipped" },
-        { id: "ORD-1001", amount: "$75.00", date: "2025-03-08", status: "Delivered" },
+        { id: "ORD-1003", amount: "$75.00", date: "2025-03-08", status: "Delivered" },
         { id: "ORD-1005", amount: "$330.20", date: "2025-02-28", status: "Processing" },
-      ]);})
-   })
+      ]);
+    }, 1000);
+  }, []);
+
+  const filteredOrders = orders.filter((order) => {
+    return (
+      order.id.toLowerCase().includes(search.toLowerCase()) ||
+      order.amount.toLowerCase().includes(search.toLowerCase()) ||
+      order.date.toLowerCase().includes(search.toLowerCase()) ||
+      order.status.toLowerCase().includes(search.toLowerCase())
+    );
+  });
 
   return (
-    <div className="p-6">
+    <div>
       {/* Order Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {[
@@ -38,8 +49,7 @@ const Order = () => {
               <p className="text-2xl font-bold">{card.count}</p>
             </div>
           </motion.div>
-     ) )}
-
+        ))}
       </div>
 
       {/* Recent Orders Table */}
@@ -50,6 +60,12 @@ const Order = () => {
         transition={{ duration: 0.7 }}
       >
         <h2 className="text-xl font-semibold mb-4">Recent Orders</h2>
+        <input
+          className="border rounded py-2 px-2 mb-2 w-1/2 outline-0"
+          type="text"
+          placeholder="Search Order"
+          onChange={(e) => setSearch(e.target.value)}
+        />
         <div className="overflow-x-auto">
           <table className="min-w-full border rounded-lg">
             <thead>
@@ -61,24 +77,34 @@ const Order = () => {
               </tr>
             </thead>
             <tbody>
-              {[
-                { id: "#1023", date: "Mar 10, 2025", amount: "$200", status: "Pending" },
-                { id: "ORD-3451", date: "2025-02-28", amount: "$80.99", status: "Completed" },
-                { id: "ORD-5432", date: "2025-03-10", amount: "$145.50", status: "Shipped" },
-              ].map((order, index) => (
-                <tr key={index} className="border-t hover:bg-gray-100 transition">
-                  <td className="py-3 px-4">{order.id}</td>
-                  <td className="py-3 px-4">{order.amount}</td>
-                  <td className="py-3 px-4">{order.date}</td>
-                  <td
-                    className={`py-3 px-4 text-sm ${
-                      order.status === "Pending" ? "text-yellow-600" : "text-green-500"
-                    }`}
-                  >
-                    {order.status}
+              {filteredOrders.length > 0 ? (
+                filteredOrders.map((order, index) => (
+                  <tr key={index} className="border-t hover:bg-gray-100 transition">
+                    <td className="py-3 px-4">{order.id}</td>
+                    <td className="py-3 px-4">{order.amount}</td>
+                    <td className="py-3 px-4">{order.date}</td>
+                    <td
+                      className={`py-3 px-4 text-sm ${
+                        order.status === "Pending"
+                          ? "text-yellow-600"
+                          : order.status === "Shipped"
+                          ? "text-blue-500"
+                          : order.status === "Delivered" || order.status === "Completed"
+                          ? "text-green-500"
+                          : "text-purple-500"
+                      }`}
+                    >
+                      {order.status}
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td className="py-3 px-4 text-center" colSpan="4">
+                    Sorry, nothing found
                   </td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
@@ -95,8 +121,9 @@ const Order = () => {
           Download Report
         </button>
       </motion.div>
-      <div/></div>
+    </div>
   );
 };
 
-export default Order
+export default Order;
+  

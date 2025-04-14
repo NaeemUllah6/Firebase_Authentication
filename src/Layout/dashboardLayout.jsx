@@ -7,14 +7,14 @@ const Dashboard_Layout = () => {
   return (
     <>
       <div className='flex w-full'>
-        <div>
+        <div className=''>
           <Sidebar />
         </div>
-        <div className='w-full lg:w-[calc(100%-240px)] ms-auto'>
+        <div className='w-full lg:max-w-[calc(100%-240px)] ms-auto'>
           <div>
             <Header />
           </div>
-          <div className='mt-20 z-0'>
+          <div className='mt-21 z-0 p-4'>
             <Outlet />
           </div>
         </div>

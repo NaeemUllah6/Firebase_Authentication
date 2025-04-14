@@ -11,7 +11,7 @@ const People = () => {
   const [people, setPeople] = useState(peopleData);
 
   return (
-    <div className="p-6 bg-white shadow-md rounded-lg">
+    <div className="p-4 bg-white shadow-md rounded-lg">
       <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
         <FaUser className="text-blue-500" /> People
       </h2>
