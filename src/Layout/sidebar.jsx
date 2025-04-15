@@ -22,7 +22,7 @@ const menuItems = [
   { name: "Profile", icon: <FaUserCircle />, link: "/profile" },
   { name: "Reports", icon: <FaChartLine />, link: "/reports" },
   { name: "Settings", icon: <FaCog />, link: "/settings" },
-  { name: "Todo", icon: <FaClipboardCheck />, link: "/todo" },
+  // { name: "Todo", icon: <FaClipboardCheck />, link: "/todo" },
   { name: "Operation", icon: <FaTools />, link: "/crud" },
   { name: "BreadCrumb", icon: <FaSitemap />, link: "/breadcrumb" },
 ];

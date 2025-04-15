@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { use, useContext, useState } from "react";
 import { FaUser, FaEnvelope, FaBriefcase, FaEdit, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { ProfileContext } from "../../UserAuthentication/UserContext/User-context";
 
 const initialUserProfile = {
   name: "John Doe",
@@ -29,12 +30,13 @@ const UserProfile = () => {
     setUser(formData);
     setIsEditing(false);
   };
+  const profile = useContext(ProfileContext);
 
   return (
     <div className="p-4 bg-white shadow-xl rounded-lg w-full max-w-full mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 text-gray-800">
       <div className="flex flex-col items-center w-full md:w-1/3">
         <img
-          src={user.avatar}
+          src={profile}
           alt="User Avatar"
           className="w-32 h-32 rounded-full border-4 border-gray-300 shadow-md"
         />

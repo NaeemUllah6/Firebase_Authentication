@@ -1,12 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Toast = ({ onClose }) => {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      onClose(); // Call the parent function to reset state
-    }, 3000);
+  const [progress, setProgress] = useState('w-full');
 
-    return () => clearTimeout(timer);
+  useEffect(() => {
+    const startProgress = setTimeout(() => setProgress('w-0'), 50);
+
+    const timer = setTimeout(() => {
+      onClose();
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(startProgress);
+    };
   }, [onClose]);
 
   return (
@@ -15,8 +22,13 @@ const Toast = ({ onClose }) => {
         <span className="p-1 bg-blue-400 rounded-full text-white text-sm">✔</span>
         <p className="text-gray-800">User Deleted Successfully</p>
       </div>
+
+      <div className="mt-2 h-1 bg-blue-300 rounded overflow-hidden">
+        <div className={`h-full bg-blue-600 transition-all duration-1000 ease-linear ${progress}`} />
+      </div>
     </div>
   );
 };
 
 export default Toast;
+

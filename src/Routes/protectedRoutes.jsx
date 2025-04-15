@@ -31,7 +31,7 @@ const routes = [
   { path: "/settings", element: <Settings /> },
   { path: "/support", element: <Support /> },
   { path: "/user", element: <User /> },
-  { path: "/todo", element: <Todo /> },
+  // { path: "/todo", element: <Todo /> },
   { path: "/crud", element: <Crud /> },
   { path: "/breadcrumb", element: <Breadcrumb /> },
 

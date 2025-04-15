@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-
-const UserProfile = () => {
-  // State for profile data
-  const [profile, setProfile] = useState({
+import {ProfileContext} from '../../UserAuthentication/UserContext/User-context'
+import { useContext } from "react";
+const UseruserProfile = () => {
+  // State for userProfile data
+  const [userProfile, setuserProfile] = useState({
     name: "John Doe",
     email: "johndoe@example.com",
     bio: "Web Developer at XYZ",
@@ -12,16 +13,19 @@ const UserProfile = () => {
 
   // Handle input changes
   const handleChange = (e) => {
-    setProfile({ ...profile, [e.target.name]: e.target.value });
+    setuserProfile({ ...userProfile, [e.target.name]: e.target.value });
   };
 
   // Toggle Edit Mode
   const toggleEdit = () => {
     setIsEditing(!isEditing);
   };
+    const profile = useContext(ProfileContext);
+
   return (
     <div className="max-w-full mx-auto mt-10 p-4  bg-white shadow-md rounded-lg">
-      <h2 className="text-xl font-bold mb-4">User Profile</h2>
+      <img className="mb-3" src={profile} alt="" />
+      <h2 className="text-xl font-bold mb-4">User userProfile</h2>
 
       {isEditing ? (
         // Edit Mode
@@ -31,7 +35,7 @@ const UserProfile = () => {
             type="text"
             name="name"
             required
-            value={profile.name}
+            value={userProfile.name}
             onChange={handleChange}
             className="w-full border p-2 rounded"
           />
@@ -40,7 +44,7 @@ const UserProfile = () => {
           <input
             type="email"
             name="email"
-            value={profile.email}
+            value={userProfile.email}
             onChange={handleChange}
             className="w-full border p-2 rounded"
           />
@@ -48,7 +52,7 @@ const UserProfile = () => {
           <label className="block mt-3 mb-2">Bio:</label>
           <textarea
             name="bio"
-            value={profile.bio}
+            value={userProfile.bio}
             onChange={handleChange}
             className="w-full border p-2 rounded"
           ></textarea>
@@ -64,15 +68,15 @@ const UserProfile = () => {
       ) : (
         // View Mode
         <>
-          <p><strong>Name:</strong> {profile.name}</p>
-          <p><strong>Email:</strong> {profile.email}</p>
-          <p><strong>Bio:</strong> {profile.bio}</p>
+          <p><strong>Name:</strong> {userProfile.name}</p>
+          <p><strong>Email:</strong> {userProfile.email}</p>
+          <p><strong>Bio:</strong> {userProfile.bio}</p>
 
           <button
             onClick={toggleEdit}
             className="mt-4 w-fit px-5 bg-blue-600 text-white py-2 rounded"
           >
-            Edit Profile
+            Edit userProfile
           </button>
         </>
       )}
@@ -80,4 +84,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default UseruserProfile;
