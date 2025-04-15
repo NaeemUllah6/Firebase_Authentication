@@ -30,16 +30,18 @@ const UserProfile = () => {
     setUser(formData);
     setIsEditing(false);
   };
-  const profile = useContext(ProfileContext);
+  const {cachtingerror,profile} = useContext(ProfileContext);
 
   return (
     <div className="p-4 bg-white shadow-xl rounded-lg w-full max-w-full mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 text-gray-800">
       <div className="flex flex-col items-center w-full md:w-1/3">
         <img
           src={profile}
-          alt="User Avatar"
+          alt=""
           className="w-32 h-32 rounded-full border-4 border-gray-300 shadow-md"
         />
+      {cachtingerror && <p>Error while fetching profile details</p>}
+
         {!isEditing && (
           <button
             onClick={handleEditClick}

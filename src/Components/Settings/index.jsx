@@ -20,11 +20,11 @@ const UseruserProfile = () => {
   const toggleEdit = () => {
     setIsEditing(!isEditing);
   };
-    const profile = useContext(ProfileContext);
+    const {profile} = useContext(ProfileContext);
 
   return (
     <div className="max-w-full mx-auto mt-10 p-4  bg-white shadow-md rounded-lg">
-      <img className="mb-3" src={profile} alt="" />
+      <img className="mb-3 rounded-2xl" src={profile} alt="" />
       <h2 className="text-xl font-bold mb-4">User userProfile</h2>
 
       {isEditing ? (

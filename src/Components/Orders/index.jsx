@@ -84,15 +84,14 @@ const Order = () => {
                     <td className="py-3 px-4">{order.amount}</td>
                     <td className="py-3 px-4">{order.date}</td>
                     <td
-                      className={`py-3 px-4 text-sm ${
-                        order.status === "Pending"
+                      className={`py-3 px-4 text-sm ${order.status === "Pending"
                           ? "text-yellow-600"
                           : order.status === "Shipped"
-                          ? "text-blue-500"
-                          : order.status === "Delivered" || order.status === "Completed"
-                          ? "text-green-500"
-                          : "text-purple-500"
-                      }`}
+                            ? "text-blue-500"
+                            : order.status === "Delivered" || order.status === "Completed"
+                              ? "text-green-500"
+                              : "text-purple-500"
+                        }`}
                     >
                       {order.status}
                     </td>
@@ -126,4 +125,3 @@ const Order = () => {
 };
 
 export default Order;
-  

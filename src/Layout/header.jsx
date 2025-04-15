@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import Sidebar from "./sidebar";
 import { ProfileContext } from "../UserAuthentication/UserContext/User-context.jsx";
 const Header = () => {
-  const profile = useContext(ProfileContext)
+  const {profile} = useContext(ProfileContext)
   const navigate = useNavigate();
   const location = useLocation();
   const [title, setTitle] = useState("Dashboard");
