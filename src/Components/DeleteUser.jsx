@@ -6,7 +6,7 @@ const DeleteConfirmationModal = ({ closeModal, successfullyDeleted }) => {
             <div className="fixed inset-0 bg-black/50 z-40 pointer-events-none w-full md:w-[calc(100%-240px)] ms-auto top-20"></div>
             <div className="fixed inset-0 flex items-center justify-center z-50 w-full md:w-[calc(100%-240px)] ms-auto top-20">
                 <div className="relative p-4 max-w-md w-full">
-                    <div className="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                    <div className="relative bg-white rounded-lg shadow-sm">
                         <button
                             onClick={closeModal}
                             type="button"
@@ -15,7 +15,6 @@ const DeleteConfirmationModal = ({ closeModal, successfullyDeleted }) => {
                             <svg className="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 14 14">
                                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                             </svg>
-                            <span className="sr-only">Close modal</span>
                         </button>
 
                         <div className="p-4 md:p-5 text-center">
