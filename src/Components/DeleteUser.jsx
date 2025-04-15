@@ -3,8 +3,8 @@ import React from 'react';
 const DeleteConfirmationModal = ({ closeModal, successfullyDeleted }) => {
     return (
         <>
-            <div className="fixed inset-0 bg-black/50 z-40 pointer-events-none w-[calc(100%-240px)] ms-auto top-20"></div>
-            <div className="fixed inset-0 flex items-center justify-center z-50 w-[calc(100%-240px)] ms-auto top-20">
+            <div className="fixed inset-0 bg-black/50 z-40 pointer-events-none w-full md:w-[calc(100%-240px)] ms-auto top-20"></div>
+            <div className="fixed inset-0 flex items-center justify-center z-50 w-full md:w-[calc(100%-240px)] ms-auto top-20">
                 <div className="relative p-4 max-w-md w-full">
                     <div className="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
                         <button
