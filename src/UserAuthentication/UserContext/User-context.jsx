@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import icon from '../../assets/img2.jpg';
-import { GenderContext } from '../../../../contextApi/src/context/NamegenderContext';
+// import { GenderContext } from '../../../../contextApi/src/context/Namegendercontext';
 import axios from 'axios';
 import Loading from '../../Components/loading'
 
@@ -35,11 +35,9 @@ const cachtingerror = (error)
     <>
     {/* {error && <p>Error fetching Profile</p>} */}
     {loading && <Loading/>}
-    <GenderContext.Provider value={"male"}>
       <ProfileContext.Provider value={{profile, cachtingerror}}>
         {children}
       </ProfileContext.Provider>
-    </GenderContext.Provider>
     </>
   );
 }
